@@ -10,7 +10,7 @@ st.markdown("""
 <style>
     .main {text-align: center;}
     .stTextInput {width:60% !important; margin:auto; }
-    .stButton button {width: 50%; background-color #4CAF50; color: white; font-size: 18px; margin-left: 20px;}
+    .stButton button {width: 50%; background-color #4CAF50; color: white; font-size: 18px; }
     .stButton button:hover { background-color: #45a049;}
 <style>
 """, unsafe_allow_html=True)
@@ -58,16 +58,11 @@ def check_password_strength(password):
         with st.expander("**Improve Your Password**"):
             for item in feedback:
                 st.write(item)
-                
-# Center the input and button using columns
-col1, col2, col3 = st.columns([1, 2, 1]) 
+password = st.text_input("Enter your password:", type="password", help="Ensure your password is strong")
 
-with col2:
-    password = st.text_input("Enter your password:", type="password", help="Ensure your password is strong")
-
-    if st.button("Check Strength"):
-        if password:
-            check_password_strength(password)
-        else:
-            st.warning("⚠️ Please enter a password!")
-
+#Button 
+if st.button("Check Strength"):
+    if password:
+        check_password_strength(password)
+    else:
+        st.warning("⚠️ Please enter a password!")
