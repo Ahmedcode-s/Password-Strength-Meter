@@ -65,8 +65,8 @@ with col2:
  password = st.text_input("Enter your password:", type="password", help="Ensure your password is strong")
 
 
-#Button 
-if st.button("Check Strength"):
+   #Button 
+ if st.button("Check Strength"):
     if password:
         check_password_strength(password)
     else:
